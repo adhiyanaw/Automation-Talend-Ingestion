@@ -1,0 +1,13 @@
+# Hasil build job Talend: berisi context group dengan login/password (terenkripsi kunci bawaan, bukan rahasia sungguhan)
+builds/
+*.zip
+# Log jalan script dan log TAC
+log/
+# Konfigurasi per lingkungan (host internal); pakai config.example.yaml sebagai contoh
+config.yaml
+# Versi script lama (riwayat sudah ada di git)
+ScriptArchive/
+# Rahasia dan sampah
+.env
+*.pyc
+__pycache__/

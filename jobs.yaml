@@ -1,0 +1,29 @@
+# ============================================================
+# jobs.yaml  -  daftar job per kategori (mirip ETL_JOB_CONFIG)
+# category : A | B | C | SAMPLE  (bebas, dipakai untuk filter --category)
+# build_zip: hasil Build Job dari Studio (file .zip), relatif ke folder ini
+# schedule : kosong = tanpa jadwal. Format cron TAC (bagian-bagian terpisah)
+# ============================================================
+jobs:
+  - job_code: LocalIngestionTable_B 
+    category: SAMPLE
+    artifact_id: LocalIngestionTable_03       # nama job (artifactId Maven)
+    version: "0.1"
+    build_zip: builds/LocalIngestionTable_03_0.1.zip
+    active: true
+    context_name: Default
+    context:                              # nilai biasa
+      job_code: LocalIngestionTable_B 
+      LocalPostgres_Server: cdp-utility1.metrodataanalytics.co.id
+      LocalPostgres_Port: "5432"
+      LocalPostgres_Database: postgres
+    secrets:                              # nama context -> NAMA ENV VAR
+      LocalPostgres_Login: PG_LOGIN
+      LocalPostgres_Password: PG_PASS
+    schedule:
+      minutes: "30"
+      hours: "2"
+      days_of_month: "30"
+      months: "*"
+      years: "*"
+      timezone: JOBSERVER_TIMEZONE

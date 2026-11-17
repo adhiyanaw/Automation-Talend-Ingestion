@@ -1,0 +1,26 @@
+# ============================================================
+# config.yaml  -  pengaturan environment (TIDAK berisi password)
+# Salin dari config.example.yaml, lalu isi nilainya.
+# Password dibaca dari environment variable atau ditanya saat
+# dijalankan (lihat README). Jangan taruh password di file ini.
+# ============================================================
+tac:
+  url: "https://tlnd-tac1.metrodataanalytics.co.id:8443/org.talend.administrator"
+  user_env: "TAC_USER"          # nama env var untuk user TAC
+  pass_env: "TAC_PASS"          # nama env var untuk password TAC
+  verify_ssl: false             # true bila sertifikat dipercaya
+  timeout_sec: 60
+
+nexus:
+  url: "https://tlnd-tac1.metrodataanalytics.co.id:8083"
+  user_env: "NEXUS_USER"
+  pass_env: "NEXUS_PASS"
+  verify_ssl: false
+  repository: ""                # nama repo Maven2 hosted (release) - ISI bila sudah ada
+  group_id: "org.example.bsim_local"   # samakan dengan hasil Publish Studio bila ada
+  timeout_sec: 120
+
+defaults:
+  execution_server: ""          # nama server di TAC > Servers (ISI)
+  context_name: "Default"
+  log_level: "Info"

@@ -1,0 +1,21 @@
+# ============================================================
+# jobs.yaml  -  daftar job per kategori (mirip ETL_JOB_CONFIG)
+# category : A | B | C | SAMPLE  (bebas, dipakai untuk filter --category)
+# build_zip: hasil Build Job dari Studio (file .zip), relatif ke folder ini
+# schedule : kosong = tanpa jadwal. Format cron TAC (bagian-bagian terpisah)
+# ============================================================
+jobs:
+  - job_code: ZZ_SAMPLE_PUSH
+    category: SAMPLE
+    artifact_id: ZZ_SAMPLE_PUSH      # nama job (artifactId Maven)
+    version: "0.1"
+    build_zip: builds/ZZ_SAMPLE_PUSH_0.1.zip
+    active: true
+    context_name: Default
+    schedule:                        # contoh: tiap hari 02:30
+      minutes: "30"
+      hours: "2"
+      days_of_month: "*"
+      months: "*"
+      years: "*"
+      timezone: JOBSERVER_TIMEZONE   # atau TAC_TIMEZONE
